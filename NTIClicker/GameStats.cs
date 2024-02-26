@@ -1,25 +1,59 @@
-public class GameStats
+// public class GameStats
+// {
+//     // Meritpoäng
+//     public static int MP = 0;
+//     public static int BaseMPClick = 1;
+
+
+//     // Building amount
+//     public static int MatkortAmount = 0;
+//     public static int TeacherAmount = 0;
+
+
+//     // Building MPS (Meritpoäng per second)
+//     public static int MatkortMPS = 1;
+//     public static int TeacherMPS = 2;
+
+
+//     // Building prices
+//     public static int MatkortPrice = 15;
+//     public static int MatkortBasePrice = 15;
+//     public static int TeacherPrice = 100;
+//     public static int TeacherBasePrice = 100;
+
+//     // List<string> GameBuilding = [ "Matkort", "Teacher" ];
+//     string[] GameBuilding = ["Matkort", "Teacher"];
+// }
+
+public class Building
 {
-    // Meritpoäng and how much one get
-    public int MP = 0;
-    public int BaseMPClick = 1;
+    public int Amount { get; set; }
+    public int MPS { get; set; }
+    public int Price { get; set; }
+    public int BasePrice { get; set; }
 
-
-    // Building amount
-    public int MatkortAmount = 0;
-    public int TeacherAmount = 0;
-
-
-
-    // Building MPS (Meritpoäng per second)
-    public int MatkortMPS = 1;
-    public int TeacherMPS = 2;
-
-
-
-    // Building prices
-    public int MatkortPrice = 15;
-    public int MatkortBasePrice = 15;
-    public int TeacherPrice = 100;
-    public int TeacherBasePrice = 100;
+    public Building(int amount, int mps, int price, int basePrice)
+    {
+        Amount = amount;
+        MPS = mps;
+        Price = price;
+        BasePrice = basePrice;
+    }
 }
+
+public class GameConstants
+{
+    public static int MP = 0;
+    public static int BaseMPClick = 1;
+
+    public static Building Matkort = new(0, 0, 15, 15);
+    public static Building Teacher = new(0, 0, 100, 100);
+}
+
+
+
+// public static void UpdateBuildingCosts()
+// {
+//     BuildingCostCalculator.ComputeCost(GameConstants.Matkort);
+//     BuildingCostCalculator.ComputeCost(GameConstants.Teacher);
+// }

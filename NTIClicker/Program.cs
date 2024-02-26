@@ -7,7 +7,6 @@ Raylib.InitAudioDevice();
 
 GameAudio audio = new();
 GameLoop gameLoop = new();
-BlueBG Background = new();
 
 Raylib.SetMusicVolume(audio.bgm, (float)0.3);
 Raylib.SetSoundVolume(audio.clickNTI, (float)0.5);
@@ -21,7 +20,6 @@ while (!Raylib.WindowShouldClose())
 
     Raylib.BeginDrawing();
 
-    Background.Draw();
     gameLoop.RunGameLoop();
 
     Raylib.EndDrawing();

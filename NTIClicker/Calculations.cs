@@ -1,32 +1,35 @@
-public class computeBuildingCost : GameStats
+public class BuildingCostCalculator
 {
-    public void computeMatkortCost()
+    public static int ComputeCost(Building building)
     {
-        MatkortPrice = (int)(15 * Math.Pow(1.15, MatkortAmount));
-    }
-
-    public void computeTeacherCost()
-    {
-        TeacherPrice = (int)(15 * Math.Pow(1.15, TeacherAmount));
+        return building.Price = (int)(building.BasePrice * Math.Pow(1.15, building.Amount));
     }
 }
 
-public class GameTimer : GameStats
+public class GameTimer
 {
     public void OneSecondTimer()
     {
         if (Raylib.GetTime() % 1 < Raylib.GetFrameTime())
         {
-            if (MatkortAmount > 1)
+            if (GameConstants.Matkort.Amount > 0)
             {
-                MP += MatkortMPS;
-                Console.WriteLine($"{MP}");
+                GameConstants.MP += GameConstants.Matkort.MPS;
             }
-            if (TeacherAmount > 0)
+            if (GameConstants.Teacher.Amount > 0)
             {
-                MP += TeacherMPS;
-                Console.WriteLine($"{MP}");
+                GameConstants.MP += GameConstants.Teacher.MPS;
             }
         }
+    }
+}
+
+public class MPSCalculator
+{
+    public static int TotalMPS;
+
+    public static int UpdateMPS()
+    {
+        return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS;
     }
 }

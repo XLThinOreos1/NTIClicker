@@ -1,4 +1,4 @@
-public class ClickAction : computeBuildingCost, IClickable
+public class ClickAction : IClickable
 {
     static GameAudio audio = new();
 
@@ -10,14 +10,9 @@ public class ClickAction : computeBuildingCost, IClickable
             if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.NTIrect))
             {
                 Raylib.PlaySound(audio.clickNTI);
-                MP += BaseMPClick;
+                GameConstants.MP += GameConstants.BaseMPClick;
 
-                Raylib.DrawText($"+{BaseMPClick}", (int)Raylib.GetMousePosition().X, (int)Raylib.GetMousePosition().Y, 100, Color.White);
-
-                if (MP == 5)
-                {
-                    Console.WriteLine("Hello this works!");
-                }
+                Raylib.DrawText($"+{GameConstants.BaseMPClick}", (int)Raylib.GetMousePosition().X, (int)Raylib.GetMousePosition().Y, 100, Color.White);
             }
         }
 
@@ -27,16 +22,31 @@ public class ClickAction : computeBuildingCost, IClickable
             // Check if the mouse click is within the button rectangle
             if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.MatkortRect))
             {
-                if (MP >= MatkortPrice)
+                if (GameConstants.MP >= GameConstants.Matkort.Price)
                 {
-                    MatkortAmount++;
-                    MP -= MatkortPrice;
-                    Raylib.PlaySound(audio.buyBuilding);
-                    computeMatkortCost();
+                    GameConstants.Matkort.MPS++;
+                    GameConstants.Matkort.Amount++;
 
-                    Console.WriteLine(MatkortPrice);
-                    Console.WriteLine(MP);
-                    Console.WriteLine(MatkortAmount);
+                    Console.WriteLine(GameConstants.Matkort.MPS);
+                    Console.WriteLine(GameConstants.Matkort.Amount);
+
+                    GameConstants.MP -= GameConstants.Matkort.Price;
+
+                    BuildingCostCalculator.ComputeCost(GameConstants.Matkort);
+
+                    Raylib.PlaySound(audio.buyBuilding);
+                }
+            }
+            else if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.TeacherRect))
+            {
+                if (GameConstants.MP >= GameConstants.Teacher.Price)
+                {
+                    GameConstants.Teacher.Amount++;
+                    GameConstants.Teacher.MPS += GameConstants.Teacher.Amount;
+                    GameConstants.MP -= GameConstants.Teacher.Price;
+                    BuildingCostCalculator.ComputeCost(GameConstants.Teacher);
+
+                    Raylib.PlaySound(audio.buyBuilding);
                 }
             }
         }
