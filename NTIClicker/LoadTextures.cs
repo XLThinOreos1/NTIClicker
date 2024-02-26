@@ -1,6 +1,7 @@
 public class LoadTexture
 {
     public static Texture2D Background = Raylib.LoadTexture("textures/background.png");
+
     public static Texture2D NTILogo = Raylib.LoadTexture("textures/NTI.png");
     public static Rectangle NTIrect = new(1280 / 8 - 50, 720 / 2 - 25, NTILogo.Width, NTILogo.Height);
 
@@ -18,6 +19,7 @@ public class MPDisplay : GameStats, IDrawable
         Raylib.DrawText($"{MP} Meritpoäng", (int)LoadTexture.NTIrect.X - 15, (int)LoadTexture.NTIrect.Y - 50, 30, Color.Black);
         Raylib.DrawText($"{MP} Meritpoäng", (int)LoadTexture.NTIrect.X - 15, (int)LoadTexture.NTIrect.Y - 49, 30, Color.Black);
         Raylib.DrawText($"{MP} Meritpoäng", (int)LoadTexture.NTIrect.X - 15, (int)LoadTexture.NTIrect.Y - 48, 30, Color.Black);
+
         Raylib.DrawText($"{MP} Meritpoäng", (int)LoadTexture.NTIrect.X - 15, (int)LoadTexture.NTIrect.Y - 51, 30, Color.White);
     }
 }
@@ -41,17 +43,18 @@ public class NTITexture : IDrawable
     }
 }
 
-public class Matkort : IDrawable
+public class Matkort : GameStats, IDrawable
 {
     public void Draw()
     {
         // Draw Matkort
         Raylib.DrawRectangleRec(LoadTexture.MatkortRect, Color.White);
         Raylib.DrawTexture(LoadTexture.MatkortBuilding, (int)LoadTexture.MatkortRect.X, (int)LoadTexture.MatkortRect.Y, Color.White);
+        Raylib.DrawText($"{MatkortPrice} MP", (int)LoadTexture.MatkortRect.X + 150, (int)LoadTexture.MatkortRect.Y + 25, 20, Color.White);
     }
 }
 
-public class Teacher : IDrawable
+public class Teacher : GameStats, IDrawable
 {
     public void Draw()
     {

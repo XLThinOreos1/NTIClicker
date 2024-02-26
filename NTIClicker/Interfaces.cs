@@ -1,9 +1,9 @@
-public interface IClickable
+interface IClickable
 {
     public void Click();
 }
 
-public interface IDrawable
+interface IDrawable
 {
     public void Draw();
 }

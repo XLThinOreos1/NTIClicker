@@ -2,11 +2,12 @@
 
 // Initialize the window
 Raylib.InitWindow(1280, 720, "NTI Clicker");
-Raylib.SetTargetFPS(30);
+Raylib.SetTargetFPS(60);
 Raylib.InitAudioDevice();
 
 GameAudio audio = new();
 GameLoop gameLoop = new();
+BlueBG Background = new();
 
 Raylib.SetMusicVolume(audio.bgm, (float)0.3);
 Raylib.SetSoundVolume(audio.clickNTI, (float)0.5);
@@ -18,7 +19,12 @@ while (!Raylib.WindowShouldClose())
     Raylib.PlayMusicStream(audio.bgm);
     Raylib.UpdateMusicStream(audio.bgm);
 
+    Raylib.BeginDrawing();
+
+    Background.Draw();
     gameLoop.RunGameLoop();
+
+    Raylib.EndDrawing();
 }
 
 // Close the window

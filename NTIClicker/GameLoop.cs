@@ -1,6 +1,5 @@
-public class GameLoop : GameStats
+public class GameLoop : GameTimer
 {
-    private static BlueBG Background = new();
     private static NTITexture NTI = new();
     private static Matkort matkort = new();
     private static Teacher teacher = new();
@@ -9,17 +8,21 @@ public class GameLoop : GameStats
 
     public void RunGameLoop()
     {
-        Raylib.BeginDrawing();
+        OneSecondTimer();
 
-        click.Click();
-
-        // Draw
-        Background.Draw();
-        mpdisplay.Draw();
+        // Draw game textures and text
         NTI.Draw();
         matkort.Draw();
         teacher.Draw();
+        mpdisplay.Draw();
 
-        Raylib.EndDrawing();
+        // Check for any mouse clicks
+        click.Click();
+
+        if (Raylib.IsKeyPressed(KeyboardKey.A))
+        {
+            BaseMPClick++;
+            Console.WriteLine($"{BaseMPClick}");
+        }
     }
 }
