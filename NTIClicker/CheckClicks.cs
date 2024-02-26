@@ -24,29 +24,14 @@ public class ClickAction : IClickable
             {
                 if (GameConstants.MP >= GameConstants.Matkort.Price)
                 {
-                    GameConstants.Matkort.MPS++;
-                    GameConstants.Matkort.Amount++;
-
-                    Console.WriteLine(GameConstants.Matkort.MPS);
-                    Console.WriteLine(GameConstants.Matkort.Amount);
-
-                    GameConstants.MP -= GameConstants.Matkort.Price;
-
-                    BuildingCostCalculator.ComputeCost(GameConstants.Matkort);
-
-                    Raylib.PlaySound(audio.buyBuilding);
+                    BuildingCalculators.BuyBuilding(GameConstants.Matkort);
                 }
             }
             else if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.TeacherRect))
             {
                 if (GameConstants.MP >= GameConstants.Teacher.Price)
                 {
-                    GameConstants.Teacher.Amount++;
-                    GameConstants.Teacher.MPS += GameConstants.Teacher.Amount;
-                    GameConstants.MP -= GameConstants.Teacher.Price;
-                    BuildingCostCalculator.ComputeCost(GameConstants.Teacher);
-
-                    Raylib.PlaySound(audio.buyBuilding);
+                    BuildingCalculators.BuyBuilding(GameConstants.Teacher);
                 }
             }
         }

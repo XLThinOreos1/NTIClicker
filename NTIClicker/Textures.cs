@@ -71,6 +71,9 @@ public class MPSText : IDrawable
 {
     public void Draw()
     {
+        Raylib.DrawText($"{MPSCalculator.TotalMPS} MPS", (int)LoadTexture.NTIrect.X + 55, (int)LoadTexture.NTIrect.Y - 24, 15, Color.Black);
+        Raylib.DrawText($"{MPSCalculator.TotalMPS} MPS", (int)LoadTexture.NTIrect.X + 55, (int)LoadTexture.NTIrect.Y - 23, 15, Color.Black);
+
         Raylib.DrawText($"{MPSCalculator.TotalMPS} MPS", (int)LoadTexture.NTIrect.X + 55, (int)LoadTexture.NTIrect.Y - 25, 15, Color.White);
     }
 }

@@ -29,13 +29,15 @@ public class Building
 {
     public int Amount { get; set; }
     public int MPS { get; set; }
+    public int BaseMPS { get; set; }
     public int Price { get; set; }
     public int BasePrice { get; set; }
 
-    public Building(int amount, int mps, int price, int basePrice)
+    public Building(int amount, int mps, int baseMps, int price, int basePrice)
     {
         Amount = amount;
         MPS = mps;
+        BaseMPS = baseMps;
         Price = price;
         BasePrice = basePrice;
     }
@@ -46,8 +48,8 @@ public class GameConstants
     public static int MP = 0;
     public static int BaseMPClick = 1;
 
-    public static Building Matkort = new(0, 0, 15, 15);
-    public static Building Teacher = new(0, 0, 100, 100);
+    public static Building Matkort = new(0, 0, 1, 15, 15);
+    public static Building Teacher = new(0, 0, 3, 100, 100);
 }
 
 
