@@ -16,6 +16,9 @@ public class LoadTexture
 
     public static Texture2D PendeltagBuilding = Raylib.LoadTexture("textures/pendeltag.png");
     public static Rectangle PendeltagRect = new(1010, 220, PendeltagBuilding.Width, PendeltagBuilding.Height);
+
+    public static Texture2D LaptopBuilding = Raylib.LoadTexture("textures/laptop.png");
+    public static Rectangle LaptopRect = new(1010, 290, LaptopBuilding.Width, LaptopBuilding.Height);
 }
 
 public class MPDisplay : IDrawable
@@ -120,6 +123,24 @@ public class Pendeltag : GameConstants, IDrawable
         Raylib.DrawText($"{Pendeltag.Amount}", (int)LoadTexture.PendeltagRect.X + 200, (int)LoadTexture.PendeltagRect.Y + 12, 50, Color.Black);
         Raylib.DrawText($"{Pendeltag.Amount}", (int)LoadTexture.PendeltagRect.X + 200, (int)LoadTexture.PendeltagRect.Y + 11, 50, Color.Black);
         Raylib.DrawText($"{Pendeltag.Amount}", (int)LoadTexture.PendeltagRect.X + 200, (int)LoadTexture.PendeltagRect.Y + 10, 50, Color.White);
+    }
+}
+
+public class Laptop : GameConstants, IDrawable
+{
+    public void Draw()
+    {
+        // Draw Teacher
+        Raylib.DrawRectangleRec(LoadTexture.LaptopRect, Color.White);
+        Raylib.DrawTexture(LoadTexture.LaptopBuilding, (int)LoadTexture.LaptopRect.X, (int)LoadTexture.LaptopRect.Y, Color.White);
+
+        Raylib.DrawText($"{Laptop.Price} MP", (int)LoadTexture.LaptopRect.X + 75, (int)LoadTexture.LaptopRect.Y + 34, 20, Color.Black);
+        Raylib.DrawText($"{Laptop.Price} MP", (int)LoadTexture.LaptopRect.X + 75, (int)LoadTexture.LaptopRect.Y + 33, 20, Color.Black);
+        Raylib.DrawText($"{Laptop.Price} MP", (int)LoadTexture.LaptopRect.X + 75, (int)LoadTexture.LaptopRect.Y + 32, 20, Color.White);
+
+        Raylib.DrawText($"{Laptop.Amount}", (int)LoadTexture.LaptopRect.X + 200, (int)LoadTexture.LaptopRect.Y + 12, 50, Color.Black);
+        Raylib.DrawText($"{Laptop.Amount}", (int)LoadTexture.LaptopRect.X + 200, (int)LoadTexture.LaptopRect.Y + 11, 50, Color.Black);
+        Raylib.DrawText($"{Laptop.Amount}", (int)LoadTexture.LaptopRect.X + 200, (int)LoadTexture.LaptopRect.Y + 10, 50, Color.White);
     }
 }
 

@@ -45,13 +45,14 @@ public class Building
 
 public class GameConstants
 {
-    public static int MP = 0;
+    public static long MP = 0;
     public static int BaseMPClick = 1;
 
     public static Building Matkort = new(0, 0, 1, 15, 15);
     public static Building Teacher = new(0, 0, 3, 100, 100);
-    public static Building Matsal = new(0, 0, 10, 1000, 1000);
+    public static Building Matsal = new(0, 0, 10, 1100, 1100);
     public static Building Pendeltag = new(0, 0, 47, 12000, 12000);
+    public static Building Laptop = new(0, 0, 260, 130000, 130000);
 }
 
 

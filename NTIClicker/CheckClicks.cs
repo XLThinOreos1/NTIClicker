@@ -48,6 +48,13 @@ public class ClickAction : IClickable
                     BuildingCalculators.BuyBuilding(GameConstants.Pendeltag);
                 }
             }
+            else if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.LaptopRect))
+            {
+                if (GameConstants.MP >= GameConstants.Laptop.Price)
+                {
+                    BuildingCalculators.BuyBuilding(GameConstants.Laptop);
+                }
+            }
         }
     }
 }
