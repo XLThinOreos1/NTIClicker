@@ -50,6 +50,7 @@ public class GameConstants
 
     public static Building Matkort = new(0, 0, 1, 15, 15);
     public static Building Teacher = new(0, 0, 3, 100, 100);
+    public static Building Matsal = new(0, 0, 10, 1000, 100);
 }
 
 

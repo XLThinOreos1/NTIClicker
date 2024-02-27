@@ -10,6 +10,9 @@ public class LoadTexture
 
     public static Texture2D TeacherBuilding = Raylib.LoadTexture("textures/teacher.png");
     public static Rectangle TeacherRect = new(1010, 80, TeacherBuilding.Width, TeacherBuilding.Height);
+
+    public static Texture2D MatsalBuilding = Raylib.LoadTexture("textures/matsal.png");
+    public static Rectangle MatsalRect = new(1010, 150, MatsalBuilding.Width, MatsalBuilding.Height);
 }
 
 public class MPDisplay : IDrawable
@@ -52,7 +55,14 @@ public class Matkort : GameConstants, IDrawable
         // Draw Matkort
         Raylib.DrawRectangleRec(LoadTexture.MatkortRect, Color.White);
         Raylib.DrawTexture(LoadTexture.MatkortBuilding, (int)LoadTexture.MatkortRect.X, (int)LoadTexture.MatkortRect.Y, Color.White);
-        Raylib.DrawText($"{Matkort.Price} MP", (int)LoadTexture.MatkortRect.X + 150, (int)LoadTexture.MatkortRect.Y + 25, 20, Color.White);
+
+        Raylib.DrawText($"{Matkort.Price} MP", (int)LoadTexture.MatkortRect.X + 75, (int)LoadTexture.MatkortRect.Y + 34, 20, Color.Black);
+        Raylib.DrawText($"{Matkort.Price} MP", (int)LoadTexture.MatkortRect.X + 75, (int)LoadTexture.MatkortRect.Y + 33, 20, Color.Black);
+        Raylib.DrawText($"{Matkort.Price} MP", (int)LoadTexture.MatkortRect.X + 75, (int)LoadTexture.MatkortRect.Y + 32, 20, Color.White);
+
+        Raylib.DrawText($"{Matkort.Amount}", (int)LoadTexture.MatkortRect.X + 200, (int)LoadTexture.MatkortRect.Y + 12, 50, Color.Black);
+        Raylib.DrawText($"{Matkort.Amount}", (int)LoadTexture.MatkortRect.X + 200, (int)LoadTexture.MatkortRect.Y + 11, 50, Color.Black);
+        Raylib.DrawText($"{Matkort.Amount}", (int)LoadTexture.MatkortRect.X + 200, (int)LoadTexture.MatkortRect.Y + 10, 50, Color.White);
     }
 }
 
@@ -63,7 +73,32 @@ public class Teacher : GameConstants, IDrawable
         // Draw Teacher
         Raylib.DrawRectangleRec(LoadTexture.TeacherRect, Color.White);
         Raylib.DrawTexture(LoadTexture.TeacherBuilding, (int)LoadTexture.TeacherRect.X, (int)LoadTexture.TeacherRect.Y, Color.White);
-        Raylib.DrawText($"{Teacher.Price} MP", (int)LoadTexture.TeacherRect.X + 150, (int)LoadTexture.TeacherRect.Y + 25, 20, Color.White);
+
+        Raylib.DrawText($"{Teacher.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 34, 20, Color.Black);
+        Raylib.DrawText($"{Teacher.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 33, 20, Color.Black);
+        Raylib.DrawText($"{Teacher.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 32, 20, Color.White);
+
+        Raylib.DrawText($"{Teacher.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 12, 50, Color.Black);
+        Raylib.DrawText($"{Teacher.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 11, 50, Color.Black);
+        Raylib.DrawText($"{Teacher.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 10, 50, Color.White);
+    }
+}
+
+public class Matsal : GameConstants, IDrawable
+{
+    public void Draw()
+    {
+        // Draw Teacher
+        Raylib.DrawRectangleRec(LoadTexture.MatsalRect, Color.White);
+        Raylib.DrawTexture(LoadTexture.MatsalBuilding, (int)LoadTexture.MatsalRect.X, (int)LoadTexture.MatsalRect.Y, Color.White);
+
+        Raylib.DrawText($"{Matsal.Price} MP", (int)LoadTexture.MatsalRect.X + 75, (int)LoadTexture.MatsalRect.Y + 34, 20, Color.Black);
+        Raylib.DrawText($"{Matsal.Price} MP", (int)LoadTexture.MatsalRect.X + 75, (int)LoadTexture.MatsalRect.Y + 33, 20, Color.Black);
+        Raylib.DrawText($"{Matsal.Price} MP", (int)LoadTexture.MatsalRect.X + 75, (int)LoadTexture.MatsalRect.Y + 32, 20, Color.White);
+
+        Raylib.DrawText($"{Matsal.Amount}", (int)LoadTexture.MatsalRect.X + 200, (int)LoadTexture.MatsalRect.Y + 12, 50, Color.Black);
+        Raylib.DrawText($"{Matsal.Amount}", (int)LoadTexture.MatsalRect.X + 200, (int)LoadTexture.MatsalRect.Y + 11, 50, Color.Black);
+        Raylib.DrawText($"{Matsal.Amount}", (int)LoadTexture.MatsalRect.X + 200, (int)LoadTexture.MatsalRect.Y + 10, 50, Color.White);
     }
 }
 

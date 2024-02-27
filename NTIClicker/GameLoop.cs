@@ -1,12 +1,13 @@
 public class GameLoop : GameTimer
 {
-    private static NTITexture NTI = new();
-    private static Matkort matkort = new();
-    private static Teacher teacher = new();
-    private static MPDisplay mpdisplay = new();
-    private static MPSText mpstext = new();
-    private static ClickAction click = new();
-    private static BlueBG Background = new();
+    private readonly static NTITexture NTI = new();
+    private readonly static Matkort matkort = new();
+    private readonly static Teacher teacher = new();
+    private readonly static Matsal matsal = new();
+    private readonly static MPDisplay mpdisplay = new();
+    private readonly static MPSText mpstext = new();
+    private readonly static ClickAction click = new();
+    private readonly static BlueBG Background = new();
 
     public void RunGameLoop()
     {
@@ -18,10 +19,16 @@ public class GameLoop : GameTimer
         NTI.Draw();
         matkort.Draw();
         teacher.Draw();
+        matsal.Draw();
         mpdisplay.Draw();
         mpstext.Draw();
 
         // Check for any mouse clicks
         click.Click();
+
+        if (Raylib.IsKeyPressed(KeyboardKey.A))
+        {
+            GameConstants.Teacher.Amount += 100;
+        }
     }
 }

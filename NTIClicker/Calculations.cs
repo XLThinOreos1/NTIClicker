@@ -45,6 +45,20 @@ public class MPSCalculator
 
     public static int UpdateMPS()
     {
-        return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS;
+        return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS + GameConstants.Matsal.MPS;
     }
 }
+
+// public class DrawTextClass
+// {
+//     public static void DrawBuilding(Building building)
+//     {
+//         Raylib.DrawText($"{building.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 34, 20, Color.Black);
+//         Raylib.DrawText($"{building.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 33, 20, Color.Black);
+//         Raylib.DrawText($"{building.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 32, 20, Color.White);
+
+//         Raylib.DrawText($"{building.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 12, 50, Color.Black);
+//         Raylib.DrawText($"{building.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 11, 50, Color.Black);
+//         Raylib.DrawText($"{building.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 10, 50, Color.White);
+//     }
+// }
