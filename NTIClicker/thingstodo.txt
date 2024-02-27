@@ -14,7 +14,17 @@ Add upgrade sprites
 
 
 
-
-
-
 Json that stores cookies and buildings and upgrades
+
+
+__Building__
+// Matkort
+// Teachers
+// Matsal
+Pendeltåg
+Laptop
+Rektor
+
+Upgrades
+Make buildings more effective
+More clicks per second thing

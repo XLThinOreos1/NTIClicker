@@ -41,6 +41,13 @@ public class ClickAction : IClickable
                     BuildingCalculators.BuyBuilding(GameConstants.Matsal);
                 }
             }
+            else if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.PendeltagRect))
+            {
+                if (GameConstants.MP >= GameConstants.Pendeltag.Price)
+                {
+                    BuildingCalculators.BuyBuilding(GameConstants.Pendeltag);
+                }
+            }
         }
     }
 }

@@ -13,6 +13,9 @@ public class LoadTexture
 
     public static Texture2D MatsalBuilding = Raylib.LoadTexture("textures/matsal.png");
     public static Rectangle MatsalRect = new(1010, 150, MatsalBuilding.Width, MatsalBuilding.Height);
+
+    public static Texture2D PendeltagBuilding = Raylib.LoadTexture("textures/pendeltag.png");
+    public static Rectangle PendeltagRect = new(1010, 220, PendeltagBuilding.Width, PendeltagBuilding.Height);
 }
 
 public class MPDisplay : IDrawable
@@ -99,6 +102,24 @@ public class Matsal : GameConstants, IDrawable
         Raylib.DrawText($"{Matsal.Amount}", (int)LoadTexture.MatsalRect.X + 200, (int)LoadTexture.MatsalRect.Y + 12, 50, Color.Black);
         Raylib.DrawText($"{Matsal.Amount}", (int)LoadTexture.MatsalRect.X + 200, (int)LoadTexture.MatsalRect.Y + 11, 50, Color.Black);
         Raylib.DrawText($"{Matsal.Amount}", (int)LoadTexture.MatsalRect.X + 200, (int)LoadTexture.MatsalRect.Y + 10, 50, Color.White);
+    }
+}
+
+public class Pendeltag : GameConstants, IDrawable
+{
+    public void Draw()
+    {
+        // Draw Teacher
+        Raylib.DrawRectangleRec(LoadTexture.PendeltagRect, Color.White);
+        Raylib.DrawTexture(LoadTexture.PendeltagBuilding, (int)LoadTexture.PendeltagRect.X, (int)LoadTexture.PendeltagRect.Y, Color.White);
+
+        Raylib.DrawText($"{Pendeltag.Price} MP", (int)LoadTexture.PendeltagRect.X + 75, (int)LoadTexture.PendeltagRect.Y + 34, 20, Color.Black);
+        Raylib.DrawText($"{Pendeltag.Price} MP", (int)LoadTexture.PendeltagRect.X + 75, (int)LoadTexture.PendeltagRect.Y + 33, 20, Color.Black);
+        Raylib.DrawText($"{Pendeltag.Price} MP", (int)LoadTexture.PendeltagRect.X + 75, (int)LoadTexture.PendeltagRect.Y + 32, 20, Color.White);
+
+        Raylib.DrawText($"{Pendeltag.Amount}", (int)LoadTexture.PendeltagRect.X + 200, (int)LoadTexture.PendeltagRect.Y + 12, 50, Color.Black);
+        Raylib.DrawText($"{Pendeltag.Amount}", (int)LoadTexture.PendeltagRect.X + 200, (int)LoadTexture.PendeltagRect.Y + 11, 50, Color.Black);
+        Raylib.DrawText($"{Pendeltag.Amount}", (int)LoadTexture.PendeltagRect.X + 200, (int)LoadTexture.PendeltagRect.Y + 10, 50, Color.White);
     }
 }
 

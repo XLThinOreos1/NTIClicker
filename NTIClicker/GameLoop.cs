@@ -4,6 +4,7 @@ public class GameLoop : GameTimer
     private readonly static Matkort matkort = new();
     private readonly static Teacher teacher = new();
     private readonly static Matsal matsal = new();
+    private readonly static Pendeltag pendeltag = new();
     private readonly static MPDisplay mpdisplay = new();
     private readonly static MPSText mpstext = new();
     private readonly static ClickAction click = new();
@@ -20,6 +21,7 @@ public class GameLoop : GameTimer
         matkort.Draw();
         teacher.Draw();
         matsal.Draw();
+        pendeltag.Draw();
         mpdisplay.Draw();
         mpstext.Draw();
 
@@ -29,6 +31,10 @@ public class GameLoop : GameTimer
         if (Raylib.IsKeyPressed(KeyboardKey.A))
         {
             GameConstants.Teacher.Amount += 100;
+        }
+        if (Raylib.IsKeyPressed(KeyboardKey.B))
+        {
+            GameConstants.MP += 100;
         }
     }
 }

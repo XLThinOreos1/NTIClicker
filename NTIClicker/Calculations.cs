@@ -35,6 +35,14 @@ public class GameTimer
             {
                 GameConstants.MP += GameConstants.Teacher.MPS;
             }
+            if (GameConstants.Matsal.Amount > 0)
+            {
+                GameConstants.MP += GameConstants.Matsal.MPS;
+            }
+            if (GameConstants.Pendeltag.Amount > 0)
+            {
+                GameConstants.MP += GameConstants.Pendeltag.MPS;
+            }
         }
     }
 }
@@ -45,7 +53,7 @@ public class MPSCalculator
 
     public static int UpdateMPS()
     {
-        return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS + GameConstants.Matsal.MPS;
+        return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS + GameConstants.Matsal.MPS + GameConstants.Pendeltag.MPS;
     }
 }
 
