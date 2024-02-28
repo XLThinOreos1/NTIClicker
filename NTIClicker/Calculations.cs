@@ -1,11 +1,10 @@
-
 public class BuildingCalculators
 {
     static GameAudio audio = new();
 
-    public static int ComputeCost(Building building)
+    public static long ComputeCost(Building building)
     {
-        return building.Price = (int)(building.BasePrice * Math.Pow(1.15, building.Amount));
+        return building.Price = (long)(building.BasePrice * Math.Pow(1.15, building.Amount));
     }
 
     public static void BuyBuilding(Building building)
@@ -23,9 +22,9 @@ public class BuildingCalculators
 
 public class GameTimer
 {
-    public void OneSecondTimer()
+    public void Timer(float duration)
     {
-        if (Raylib.GetTime() % 1 < Raylib.GetFrameTime())
+        if (Raylib.GetTime() % duration < Raylib.GetFrameTime())
         {
             if (GameConstants.Matkort.Amount > 0)
             {
@@ -47,6 +46,10 @@ public class GameTimer
             {
                 GameConstants.MP += GameConstants.Laptop.MPS;
             }
+            if (GameConstants.Rektor.Amount > 0)
+            {
+                GameConstants.MP += GameConstants.Rektor.MPS;
+            }
         }
     }
 }
@@ -59,20 +62,21 @@ public class MPSCalculator
     {
         return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS +
                             GameConstants.Matsal.MPS + GameConstants.Pendeltag.MPS +
-                                GameConstants.Laptop.MPS;
+                                GameConstants.Laptop.MPS + GameConstants.Rektor.MPS;
     }
 }
 
-// public class DrawTextClass
-// {
-//     public static void DrawBuilding(Building building)
-//     {
-//         Raylib.DrawText($"{building.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 34, 20, Color.Black);
-//         Raylib.DrawText($"{building.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 33, 20, Color.Black);
-//         Raylib.DrawText($"{building.Price} MP", (int)LoadTexture.TeacherRect.X + 75, (int)LoadTexture.TeacherRect.Y + 32, 20, Color.White);
+public static class NumberFormatter
+{
+    public static string ShortenNumber(long number)
+    {
+        if (number >= 1000000000000)
+            return (number / 1000000000000D).ToString("0.##") + "T";
+        if (number >= 1000000000)
+            return (number / 1000000000D).ToString("0.##") + "B";
+        if (number >= 1000000)
+            return (number / 1000000D).ToString("0.##") + "M";
 
-//         Raylib.DrawText($"{building.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 12, 50, Color.Black);
-//         Raylib.DrawText($"{building.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 11, 50, Color.Black);
-//         Raylib.DrawText($"{building.Amount}", (int)LoadTexture.TeacherRect.X + 200, (int)LoadTexture.TeacherRect.Y + 10, 50, Color.White);
-//     }
-// }
+        return number.ToString();
+    }
+}

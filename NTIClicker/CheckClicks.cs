@@ -1,6 +1,6 @@
 public class ClickAction : IClickable
 {
-    static GameAudio audio = new();
+    private readonly static GameAudio audio = new();
 
     public void Click()
     {
@@ -11,7 +11,6 @@ public class ClickAction : IClickable
             {
                 Raylib.PlaySound(audio.clickNTI);
                 GameConstants.MP += GameConstants.BaseMPClick;
-
                 Raylib.DrawText($"+{GameConstants.BaseMPClick}", (int)Raylib.GetMousePosition().X, (int)Raylib.GetMousePosition().Y, 100, Color.White);
             }
         }
@@ -53,6 +52,13 @@ public class ClickAction : IClickable
                 if (GameConstants.MP >= GameConstants.Laptop.Price)
                 {
                     BuildingCalculators.BuyBuilding(GameConstants.Laptop);
+                }
+            }
+            else if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.RektorRect))
+            {
+                if (GameConstants.MP >= GameConstants.Rektor.Price)
+                {
+                    BuildingCalculators.BuyBuilding(GameConstants.Rektor);
                 }
             }
         }

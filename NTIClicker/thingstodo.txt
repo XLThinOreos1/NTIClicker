@@ -4,9 +4,9 @@
 // Create a drawable interface to draw stuff on the screen
 // Building price calculations
 // Improve calculations
+// Add more buildings
 
 
-Add more buildings
 Add upgrades that make buildings/clicks better (should be easy, make a function that increases baseMPS on a specific building)
 Add upgrade sprites
 
@@ -21,10 +21,19 @@ __Building__
 // Matkort
 // Teachers
 // Matsal
-Pendeltåg
-Laptop
-Rektor
+// Pendeltåg
+// Laptop
+// Rektor
 
 Upgrades
 Make buildings more effective
 More clicks per second thing
+
+upgrade ideas
+
+subway macka - double matkort MPS
+studybee - double teacher MPS
+citronvatten - double matsal MPS
+lokförare(?) - double pendeltåg MPS
+datormus - double laptop MPS
+? - double rektor MPS
