@@ -16,6 +16,12 @@ public class Building
     }
 }
 
+public class Upgrades
+{
+    // idk
+
+    // maybe on click increase baseMPS and MPS of building
+}
 
 public class GameConstants
 {
