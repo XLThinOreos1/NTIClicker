@@ -124,3 +124,26 @@ public class DebugMenu : IClickable
         Raylib.DrawText("reset money", 505, 620, 15, Color.Black);
     }
 }
+
+public class FunEasterEggs
+{
+    public static void GameWindowChangeFun()
+    {
+        if (GameConstants.MP.ToString().Contains("666"))
+        {
+            Raylib.SetWindowTitle("EVIL NTI Clicker");
+            Raylib.SetWindowIcon(LoadTexture.EvilNTILogoImage);
+        }
+        else
+        {
+            Raylib.SetWindowTitle("NTI Clicker");
+            Raylib.SetWindowIcon(LoadTexture.NTILogoImage);
+        }
+    }
+
+    public static void OpenWindow()
+    {
+        // idea Raylib.InitWindow fast med subway surfers gameplay för adhd barn
+        Raylib.OpenURL("https://www.youtube.com/watch?v=eRXE8Aebp7s");
+    }
+}

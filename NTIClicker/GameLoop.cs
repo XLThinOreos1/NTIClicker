@@ -36,7 +36,6 @@ public class GameLoop
         laptop.Draw();
         rektor.Draw();
 
-
         if (!konamiDetector.IsKonamiActivated)
         {
             konamiDetector.KonamiUpdate();
@@ -45,6 +44,11 @@ public class GameLoop
         {
             DebugMenu.DrawDebugMenu();
             debugclick.Click();
+        }
+
+        if (Raylib.IsKeyPressed(KeyboardKey.G))
+        {
+            GameConstants.MP = 665;
         }
 
         // Check for any mouse clicks

@@ -21,6 +21,8 @@ while (!Raylib.WindowShouldClose())
     Raylib.BeginDrawing();
     gameLoop.RunGameLoop();
     Raylib.EndDrawing();
+
+    FunEasterEggs.GameWindowChangeFun();
 }
 
 // Close the window

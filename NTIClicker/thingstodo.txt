@@ -1,20 +1,26 @@
+- Finished stuff -
 // Create a GUI i raylib
 // Create an updating void that writes out amount of cookies the player has
 // Create 2 buildings
+// Add more buildings
 // Create a drawable interface to draw stuff on the screen
 // Building price calculations
 // Improve calculations
-// Add more buildings
+// Make calculations better written
+
 
 
 Add upgrades that make buildings/clicks better (should be easy, make a function that increases baseMPS on a specific building)
 Add upgrade sprites
-
-
-
-
-
 Json that stores cookies and buildings and upgrades
+
+- Misc fun stuff - (add if u have time)
+add subway surfers gameplay
+add "watch 30 seconds ad for free 1000 meritpoäng"
+
+
+
+
 
 
 __Building__

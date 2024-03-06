@@ -2,6 +2,8 @@ public class LoadTexture
 {
     public static Texture2D Background = Raylib.LoadTexture("textures/background.png");
 
+    public static Image NTILogoImage = Raylib.LoadImage("textures/NTInotext.png");
+    public static Image EvilNTILogoImage = Raylib.LoadImage("textures/EvilNTInotext.png");
     public static Texture2D NTILogo = Raylib.LoadTexture("textures/NTI.png");
     public static Rectangle NTIrect = new(1280 / 8 - 50, 720 / 3 - 25, NTILogo.Width, NTILogo.Height);
 

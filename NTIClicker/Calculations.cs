@@ -50,7 +50,7 @@ public class NumberFormatter
     public static string ShortenNumber(ulong number)
     {
         if (number >= 1000000000000000000)
-            return "Infinity";
+            return "a gazillion bajillion";
         if (number >= 1000000000000000)
             return (number / 1000000000000000).ToString("0.##") + "Qd";
         if (number >= 1000000000000)

@@ -28,8 +28,6 @@ public class GameConstants
     public static ulong MP = 0;
     public static uint BaseMPClick = 1;
 
-
-
     public static Building Matkort = new(0, 0, 1, 15, 15);
     public static Building Teacher = new(0, 0, 3, 100, 100);
     public static Building Matsal = new(0, 0, 10, 1100, 1100);
