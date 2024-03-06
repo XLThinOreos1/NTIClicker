@@ -28,7 +28,7 @@ class MPDisplay : IDrawable
 {
     public void Draw()
     {
-        long mp = GameConstants.MP;
+        ulong mp = GameConstants.MP;
 
         string shortenedMP = NumberFormatter.ShortenNumber(mp);
 
@@ -65,7 +65,7 @@ public class Matkort : IDrawable
 {
     public void Draw()
     {
-        long price = GameConstants.Matkort.Price;
+        ulong price = GameConstants.Matkort.Price;
         string shortenedPrice = NumberFormatter.ShortenNumber(price);
 
         // Draw Matkort
@@ -87,7 +87,7 @@ public class Teacher : IDrawable
 {
     public void Draw()
     {
-        long price = GameConstants.Teacher.Price;
+        ulong price = GameConstants.Teacher.Price;
         string shortenedPrice = NumberFormatter.ShortenNumber(price);
 
         // Draw Teacher
@@ -108,7 +108,7 @@ public class Matsal : IDrawable
 {
     public void Draw()
     {
-        long price = GameConstants.Matsal.Price;
+        ulong price = GameConstants.Matsal.Price;
         string shortenedPrice = NumberFormatter.ShortenNumber(price);
 
         // Draw Teacher
@@ -129,7 +129,7 @@ public class Pendeltag : IDrawable
 {
     public void Draw()
     {
-        long price = GameConstants.Pendeltag.Price;
+        ulong price = GameConstants.Pendeltag.Price;
         string shortenedPrice = NumberFormatter.ShortenNumber(price);
 
         // Draw Teacher
@@ -150,7 +150,7 @@ public class Laptop : IDrawable
 {
     public void Draw()
     {
-        long price = GameConstants.Laptop.Price;
+        ulong price = GameConstants.Laptop.Price;
         string shortenedPrice = NumberFormatter.ShortenNumber(price);
 
         // Draw Teacher
@@ -171,7 +171,7 @@ public class Rektor : IDrawable
 {
     public void Draw()
     {
-        long price = GameConstants.Rektor.Price;
+        ulong price = GameConstants.Rektor.Price;
         string shortenedPrice = NumberFormatter.ShortenNumber(price);
 
         // Draw Teacher

@@ -19,9 +19,7 @@ while (!Raylib.WindowShouldClose())
     Raylib.UpdateMusicStream(audio.bgm);
 
     Raylib.BeginDrawing();
-
     gameLoop.RunGameLoop();
-
     Raylib.EndDrawing();
 }
 

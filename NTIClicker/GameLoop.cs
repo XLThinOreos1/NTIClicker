@@ -11,7 +11,9 @@ public class GameLoop
     private readonly static MPDisplay mpdisplay = new();
     private readonly static MPSText mpstext = new();
     private readonly static ClickAction click = new();
+    private readonly static DebugMenu debugclick = new();
     private readonly static BlueBG Background = new();
+    KonamiCodeDetector konamiDetector = new();
 
     public void RunGameLoop()
     {
@@ -19,6 +21,7 @@ public class GameLoop
         gameTimer.Timer(1);
         MPSCalculator.UpdateMPS();
 
+        // Console.WriteLine(GameConstants.MP.ToString("G41"));
         // Draw game textures and text
         Background.Draw();
         NTI.Draw();
@@ -33,17 +36,18 @@ public class GameLoop
         laptop.Draw();
         rektor.Draw();
 
+
+        if (!konamiDetector.IsKonamiActivated)
+        {
+            konamiDetector.KonamiUpdate();
+        }
+        else
+        {
+            DebugMenu.DrawDebugMenu();
+            debugclick.Click();
+        }
+
         // Check for any mouse clicks
         click.Click();
-
-        // Debug
-        if (Raylib.IsKeyPressed(KeyboardKey.A))
-        {
-            GameConstants.Teacher.Amount += 10;
-        }
-        if (Raylib.IsKeyDown(KeyboardKey.B))
-        {
-            GameConstants.MP += 100000;
-        }
     }
 }

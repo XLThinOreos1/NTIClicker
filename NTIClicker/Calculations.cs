@@ -2,15 +2,14 @@ public class BuildingCalculators
 {
     static GameAudio audio = new();
 
-    public static long ComputeCost(Building building)
+    public static ulong ComputeCost(Building building)
     {
-        return building.Price = (long)(building.BasePrice * Math.Pow(1.15, building.Amount));
+        return building.Price = (ulong)(building.BasePrice * Math.Pow(1.15, building.Amount));
     }
 
     public static void BuyBuilding(Building building)
     {
         building.Amount++;
-        building.MPS += building.BaseMPS;
         GameConstants.MP -= building.Price;
 
         ComputeCost(building);
@@ -26,57 +25,55 @@ public class GameTimer
     {
         if (Raylib.GetTime() % duration < Raylib.GetFrameTime())
         {
-            if (GameConstants.Matkort.Amount > 0)
-            {
-                GameConstants.MP += GameConstants.Matkort.MPS;
-            }
-            if (GameConstants.Teacher.Amount > 0)
-            {
-                GameConstants.MP += GameConstants.Teacher.MPS;
-            }
-            if (GameConstants.Matsal.Amount > 0)
-            {
-                GameConstants.MP += GameConstants.Matsal.MPS;
-            }
-            if (GameConstants.Pendeltag.Amount > 0)
-            {
-                GameConstants.MP += GameConstants.Pendeltag.MPS;
-            }
-            if (GameConstants.Laptop.Amount > 0)
-            {
-                GameConstants.MP += GameConstants.Laptop.MPS;
-            }
-            if (GameConstants.Rektor.Amount > 0)
-            {
-                GameConstants.MP += GameConstants.Rektor.MPS;
-            }
+            GameConstants.MP += MPSCalculator.TotalMPS;
         }
     }
 }
 
 public class MPSCalculator
 {
-    public static int TotalMPS;
+    public static ulong TotalMPS;
 
-    public static int UpdateMPS()
+    public static void UpdateMPS()
     {
-        return TotalMPS = GameConstants.Matkort.MPS + GameConstants.Teacher.MPS +
-                            GameConstants.Matsal.MPS + GameConstants.Pendeltag.MPS +
-                                GameConstants.Laptop.MPS + GameConstants.Rektor.MPS;
+        ulong AmountThatMPSShouldIncreaseWith = 0;
+        foreach (Building b in GameConstants.buildings)
+        {
+            AmountThatMPSShouldIncreaseWith += b.BaseMPS * b.Amount;
+        }
+        TotalMPS = AmountThatMPSShouldIncreaseWith;
     }
 }
 
-public static class NumberFormatter
+public class NumberFormatter
 {
-    public static string ShortenNumber(long number)
+    public static string ShortenNumber(ulong number)
     {
+        if (number >= 1000000000000000000)
+            return "Infinity";
+        if (number >= 1000000000000000)
+            return (number / 1000000000000000).ToString("0.##") + "Qd";
         if (number >= 1000000000000)
-            return (number / 1000000000000D).ToString("0.##") + "T";
+            return (number / 1000000000000).ToString("0.##") + "T";
         if (number >= 1000000000)
-            return (number / 1000000000D).ToString("0.##") + "B";
+            return (number / 1000000000).ToString("0.##") + "B";
         if (number >= 1000000)
-            return (number / 1000000D).ToString("0.##") + "M";
+            return (number / 1000000).ToString("0.##") + "M";
 
         return number.ToString();
     }
 }
+
+// egil testa hitta en mer effektiv sätt
+// List<string> suffix = ["asd", "burger", " Million", " Billion", " Trillion", " Quadrillion", " Quintillion", " Sextillion", " Septillion", " Octillion", " Nonillion", " Decillion", " Undecillion", " Duodecillion", "Infinity"];
+
+// string val = number.ToString("G41");
+// int suffixNum = (val.Length - 1) / 3;
+// val = val[0..(val.Length - 3 * suffixNum)];
+// if (suffixNum > 2)
+// {
+//     val = val + "." + number.ToString("G41")[val.Length..(val.Length + 2)];
+// }
+// string bigNum = val + suffix[suffixNum];
+
+// return bigNum;
