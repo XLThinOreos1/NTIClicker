@@ -1,6 +1,5 @@
 public class GameLoop
 {
-    private readonly GameTimer gameTimer = new();
     private readonly static NTITexture NTI = new();
     private readonly static Matkort matkort = new();
     private readonly static Teacher teacher = new();
@@ -18,7 +17,7 @@ public class GameLoop
     public void RunGameLoop()
     {
         // Update MPS every second
-        gameTimer.Timer(1);
+        GameTimer.Timer(1);
         MPSCalculator.UpdateMPS();
 
         // Console.WriteLine(GameConstants.MP.ToString("G41"));
@@ -49,6 +48,10 @@ public class GameLoop
         if (Raylib.IsKeyPressed(KeyboardKey.G))
         {
             GameConstants.MP = 665;
+        }
+        if (Raylib.IsKeyPressed(KeyboardKey.D))
+        {
+            GameConstants.MP = 8999;
         }
 
         // Check for any mouse clicks

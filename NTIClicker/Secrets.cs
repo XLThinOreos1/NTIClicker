@@ -1,4 +1,6 @@
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
+using System.Security.Cryptography;
 
 public class KonamiCodeDetector
 {
@@ -55,6 +57,8 @@ public class DebugMenu : IClickable
     Rectangle rectangle3 = new(250, 620, 100, 100);
     Rectangle rectangle4 = new(375, 620, 100, 100);
     Rectangle rectangle5 = new(500, 620, 100, 100);
+    Rectangle rectangle6 = new(625, 620, 100, 100);
+    Rectangle rectangle7 = new(750, 620, 100, 100);
 
     public void Click()
     {
@@ -63,44 +67,60 @@ public class DebugMenu : IClickable
             // Get mouse position
             Vector2 mousePosition = Raylib.GetMousePosition();
 
-            // Check if mouse is inside any of the smaller rectangles
+            // Check if mouse is inside any of the debug rectangles
 
+            // Action for x10
             if (Raylib.CheckCollisionPointRec(mousePosition, rectangle1))
             {
                 GameConstants.MP *= 10;
-                // Action for "x10"
             }
 
-
+            // Action for x100
             if (Raylib.CheckCollisionPointRec(mousePosition, rectangle2))
             {
                 GameConstants.MP *= 100;
-                // Action for "x100"
             }
 
-
+            // Action for 100 buildings
             if (Raylib.CheckCollisionPointRec(mousePosition, rectangle3))
             {
-                GameConstants.Matkort.Amount += 100;
-                GameConstants.Teacher.Amount += 100;
-                GameConstants.Matsal.Amount += 100;
-                GameConstants.Pendeltag.Amount += 100;
-                GameConstants.Laptop.Amount += 100;
-                GameConstants.Rektor.Amount += 100;
-                // Action for "100 buildings"
+                foreach (Building b in GameConstants.buildings)
+                {
+                    b.Amount += 100;
+                }
             }
 
-
+            // Action for infinite money
             if (Raylib.CheckCollisionPointRec(mousePosition, rectangle4))
             {
-                GameConstants.MP += ulong.MaxValue;
-                // Action for "inf money"
+                GameConstants.MP = ulong.MaxValue;
             }
 
+            // Action for "reset money"
             if (Raylib.CheckCollisionPointRec(mousePosition, rectangle5))
             {
                 GameConstants.MP = 0;
-                // Action for "reset money"
+            }
+
+            // Action for reset buildings
+            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle6))
+            {
+                foreach (Building b in GameConstants.buildings)
+                {
+                    b.Amount = 0;
+                    b.Price = b.BasePrice;
+                }
+            }
+
+            // Action for full wipe
+            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle7))
+            {
+                foreach (Building b in GameConstants.buildings)
+                {
+                    b.Amount = 0;
+                    b.Price = b.BasePrice;
+                }
+                GameConstants.MP = 0;
             }
         }
     }
@@ -122,23 +142,40 @@ public class DebugMenu : IClickable
 
         Raylib.DrawRectangle(500, 620, 100, 100, Color.Gray);
         Raylib.DrawText("reset money", 505, 620, 15, Color.Black);
+
+        Raylib.DrawRectangle(625, 620, 100, 100, Color.LightGray);
+        Raylib.DrawText("reset \nbuildings", 630, 620, 15, Color.Black);
+
+        Raylib.DrawRectangle(750, 620, 100, 100, Color.Red);
+        Raylib.DrawText("full wipe", 755, 620, 15, Color.Black);
     }
 }
 
 public class FunEasterEggs
 {
-    public static void GameWindowChangeFun()
+    public static void ChangeGameName()
     {
         if (GameConstants.MP.ToString().Contains("666"))
         {
             Raylib.SetWindowTitle("EVIL NTI Clicker");
             Raylib.SetWindowIcon(LoadTexture.EvilNTILogoImage);
         }
+        // Reference till Dragon Ball meme
+        else if (GameConstants.MP >= 9000 && GameConstants.MP < 9002)
+        {
+            Raylib.SetWindowTitle("It's over 9000!");
+        }
+        else if (GameConstants.MP == 69)
+        {
+            Raylib.SetWindowTitle("nice");
+        }
         else
         {
             Raylib.SetWindowTitle("NTI Clicker");
             Raylib.SetWindowIcon(LoadTexture.NTILogoImage);
         }
+
+
     }
 
     public static void OpenWindow()

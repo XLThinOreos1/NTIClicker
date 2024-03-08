@@ -22,7 +22,7 @@ while (!Raylib.WindowShouldClose())
     gameLoop.RunGameLoop();
     Raylib.EndDrawing();
 
-    FunEasterEggs.GameWindowChangeFun();
+    FunEasterEggs.ChangeGameName();
 }
 
 // Close the window

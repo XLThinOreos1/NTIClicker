@@ -4,9 +4,9 @@ public class Building
     public uint MPS { get; set; }
     public uint BaseMPS { get; set; }
     public ulong Price { get; set; }
-    public int BasePrice { get; set; }
+    public uint BasePrice { get; set; }
 
-    public Building(uint amount, uint mps, uint baseMps, ulong price, int basePrice)
+    public Building(uint amount, uint mps, uint baseMps, ulong price, uint basePrice)
     {
         Amount = amount;
         MPS = mps;

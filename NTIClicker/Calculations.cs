@@ -21,7 +21,7 @@ public class BuildingCalculators
 
 public class GameTimer
 {
-    public void Timer(float duration)
+    public static void Timer(float duration)
     {
         if (Raylib.GetTime() % duration < Raylib.GetFrameTime())
         {
@@ -49,16 +49,16 @@ public class NumberFormatter
 {
     public static string ShortenNumber(ulong number)
     {
-        if (number >= 1000000000000000000)
-            return "a gazillion bajillion";
-        if (number >= 1000000000000000)
-            return (number / 1000000000000000).ToString("0.##") + "Qd";
-        if (number >= 1000000000000)
-            return (number / 1000000000000).ToString("0.##") + "T";
-        if (number >= 1000000000)
-            return (number / 1000000000).ToString("0.##") + "B";
-        if (number >= 1000000)
-            return (number / 1000000).ToString("0.##") + "M";
+        if (number >= 1000000000000000000F)
+            return "a lot of";
+        if (number >= 1000000000000000F)
+            return (number / 1000000000000000F).ToString("0.##") + "Qd";
+        if (number >= 1000000000000F)
+            return (number / 1000000000000F).ToString("0.##") + "T";
+        if (number >= 1000000000F)
+            return (number / 1000000000F).ToString("0.##") + "B";
+        if (number >= 1000000F)
+            return (number / 1000000F).ToString("0.##") + "M";
 
         return number.ToString();
     }
