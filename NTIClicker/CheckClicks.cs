@@ -10,8 +10,8 @@ public class ClickAction : IClickable
             if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), LoadTexture.NTIrect))
             {
                 Raylib.PlaySound(audio.clickNTI);
-                GameConstants.MP += GameConstants.BaseMPClick;
-                Raylib.DrawText($"+{GameConstants.BaseMPClick}", (int)Raylib.GetMousePosition().X, (int)Raylib.GetMousePosition().Y, 100, Color.White);
+                GameConstants.MP++;
+                Raylib.DrawText($"+1", (int)Raylib.GetMousePosition().X, (int)Raylib.GetMousePosition().Y, 100, Color.White);
             }
         }
 

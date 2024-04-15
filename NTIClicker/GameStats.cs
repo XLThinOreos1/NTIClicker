@@ -19,7 +19,6 @@ public class Building
 public class GameConstants
 {
     public static ulong MP = 0;
-    public static uint BaseMPClick = 1;
 
     public static Building Matkort = new(0, 0, 1, 10, 10);
     public static Building Teacher = new(0, 0, 5, 100, 100);
