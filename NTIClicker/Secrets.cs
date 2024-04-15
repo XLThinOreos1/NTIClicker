@@ -49,13 +49,13 @@ public class KonamiCodeDetector
 
 public class DebugMenu : IClickable
 {
-    Rectangle rectangle1 = new(0, 620, 100, 100);
-    Rectangle rectangle2 = new(125, 620, 100, 100);
-    Rectangle rectangle3 = new(250, 620, 100, 100);
-    Rectangle rectangle4 = new(375, 620, 100, 100);
-    Rectangle rectangle5 = new(500, 620, 100, 100);
-    Rectangle rectangle6 = new(625, 620, 100, 100);
-    Rectangle rectangle7 = new(750, 620, 100, 100);
+    private Rectangle _rectangle1 = new(0, 620, 100, 100);
+    private Rectangle _rectangle2 = new(125, 620, 100, 100);
+    private Rectangle _rectangle3 = new(250, 620, 100, 100);
+    private Rectangle _rectangle4 = new(375, 620, 100, 100);
+    private Rectangle _rectangle5 = new(500, 620, 100, 100);
+    private Rectangle _rectangle6 = new(625, 620, 100, 100);
+    private Rectangle _rectangle7 = new(750, 620, 100, 100);
 
     public void Click()
     {
@@ -67,19 +67,19 @@ public class DebugMenu : IClickable
             // Check if mouse is inside any of the debug rectangles
 
             // Action for x10
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle1))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle1))
             {
                 GameConstants.MP *= 10;
             }
 
             // Action for x100
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle2))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle2))
             {
                 GameConstants.MP *= 100;
             }
 
             // Action for 100 buildings
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle3))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle3))
             {
                 foreach (Building b in GameConstants.buildings)
                 {
@@ -88,19 +88,19 @@ public class DebugMenu : IClickable
             }
 
             // Action for infinite money
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle4))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle4))
             {
                 GameConstants.MP = ulong.MaxValue;
             }
 
             // Action for "reset money"
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle5))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle5))
             {
                 GameConstants.MP = 0;
             }
 
             // Action for reset buildings
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle6))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle6))
             {
                 foreach (Building b in GameConstants.buildings)
                 {
@@ -110,7 +110,7 @@ public class DebugMenu : IClickable
             }
 
             // Action for full wipe
-            if (Raylib.CheckCollisionPointRec(mousePosition, rectangle7))
+            if (Raylib.CheckCollisionPointRec(mousePosition, _rectangle7))
             {
                 foreach (Building b in GameConstants.buildings)
                 {
@@ -157,7 +157,7 @@ public class FunEasterEggs
             Raylib.SetWindowTitle("EVIL NTI Clicker");
             Raylib.SetWindowIcon(LoadTexture.EvilNTILogoImage);
         }
-        // Reference till Dragon Ball meme
+        // Reference to Dragon Ball meme
         else if (GameConstants.MP >= 9000 && GameConstants.MP < 9002)
         {
             Raylib.SetWindowTitle("It's over 9000!");

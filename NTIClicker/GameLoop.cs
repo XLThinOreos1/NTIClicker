@@ -1,18 +1,18 @@
 public class GameLoop
 {
-    private readonly static NTITexture NTI = new();
-    private readonly static Matkort matkort = new();
-    private readonly static Teacher teacher = new();
-    private readonly static Matsal matsal = new();
-    private readonly static Pendeltag pendeltag = new();
-    private readonly static Laptop laptop = new();
-    private readonly static Rektor rektor = new();
-    private readonly static MPDisplay mpdisplay = new();
-    private readonly static MPSText mpstext = new();
-    private readonly static ClickAction click = new();
-    private readonly static DebugMenu debugclick = new();
-    private readonly static BlueBG Background = new();
-    KonamiCodeDetector konamiDetector = new();
+    private readonly static NTITexture s_nti = new();
+    private readonly static Matkort s_matkort = new();
+    private readonly static Teacher s_teacher = new();
+    private readonly static Matsal s_matsal = new();
+    private readonly static Pendeltag s_pendeltag = new();
+    private readonly static Laptop s_laptop = new();
+    private readonly static Rektor s_rektor = new();
+    private readonly static MPDisplay s_mpDisplay = new();
+    private readonly static MPSText s_mpsText = new();
+    private readonly static ClickAction s_click = new();
+    private readonly static DebugMenu s_debugClick = new();
+    private readonly static BlueBG s_background = new();
+    private KonamiCodeDetector _konamiDetector = new();
 
     public void RunGameLoop()
     {
@@ -22,30 +22,30 @@ public class GameLoop
 
         // Console.WriteLine(GameConstants.MP.ToString("G41"));
         // Draw game textures and text
-        Background.Draw();
-        NTI.Draw();
-        mpdisplay.Draw();
-        mpstext.Draw();
+        s_background.Draw();
+        s_nti.Draw();
+        s_mpDisplay.Draw();
+        s_mpsText.Draw();
 
         // Draw buildings
-        matkort.Draw();
-        teacher.Draw();
-        matsal.Draw();
-        pendeltag.Draw();
-        laptop.Draw();
-        rektor.Draw();
+        s_matkort.Draw();
+        s_teacher.Draw();
+        s_matsal.Draw();
+        s_pendeltag.Draw();
+        s_laptop.Draw();
+        s_rektor.Draw();
 
-        if (!konamiDetector.IsKonamiActivated)
+        if (!_konamiDetector.IsKonamiActivated)
         {
-            konamiDetector.KonamiUpdate();
+            _konamiDetector.KonamiUpdate();
         }
         else
         {
             DebugMenu.DrawDebugMenu();
-            debugclick.Click();
+            s_debugClick.Click();
         }
 
         // Check for any mouse clicks
-        click.Click();
+        s_click.Click();
     }
 }
