@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
 using System.Numerics;
-using System.Security.Cryptography;
 
 public class KonamiCodeDetector
 {
@@ -51,7 +49,6 @@ public class KonamiCodeDetector
 
 public class DebugMenu : IClickable
 {
-
     Rectangle rectangle1 = new(0, 620, 100, 100);
     Rectangle rectangle2 = new(125, 620, 100, 100);
     Rectangle rectangle3 = new(250, 620, 100, 100);
@@ -165,22 +162,10 @@ public class FunEasterEggs
         {
             Raylib.SetWindowTitle("It's over 9000!");
         }
-        else if (GameConstants.MP == 69)
-        {
-            Raylib.SetWindowTitle("nice");
-        }
         else
         {
             Raylib.SetWindowTitle("NTI Clicker");
             Raylib.SetWindowIcon(LoadTexture.NTILogoImage);
         }
-
-
-    }
-
-    public static void OpenWindow()
-    {
-        // idea Raylib.InitWindow fast med subway surfers gameplay för adhd barn
-        Raylib.OpenURL("https://www.youtube.com/watch?v=eRXE8Aebp7s");
     }
 }

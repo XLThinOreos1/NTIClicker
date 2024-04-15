@@ -45,15 +45,6 @@ public class GameLoop
             debugclick.Click();
         }
 
-        if (Raylib.IsKeyPressed(KeyboardKey.G))
-        {
-            GameConstants.MP = 665;
-        }
-        if (Raylib.IsKeyPressed(KeyboardKey.D))
-        {
-            GameConstants.MP = 8999;
-        }
-
         // Check for any mouse clicks
         click.Click();
     }

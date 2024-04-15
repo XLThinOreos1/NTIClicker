@@ -63,17 +63,3 @@ public class NumberFormatter
         return number.ToString();
     }
 }
-
-// egil testa hitta en mer effektiv sätt
-// List<string> suffix = ["asd", "burger", " Million", " Billion", " Trillion", " Quadrillion", " Quintillion", " Sextillion", " Septillion", " Octillion", " Nonillion", " Decillion", " Undecillion", " Duodecillion", "Infinity"];
-
-// string val = number.ToString("G41");
-// int suffixNum = (val.Length - 1) / 3;
-// val = val[0..(val.Length - 3 * suffixNum)];
-// if (suffixNum > 2)
-// {
-//     val = val + "." + number.ToString("G41")[val.Length..(val.Length + 2)];
-// }
-// string bigNum = val + suffix[suffixNum];
-
-// return bigNum;
