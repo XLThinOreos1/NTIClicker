@@ -1,0 +1,5 @@
+@startuml
+class GameLoop {
+    + RunGameLoop() : void
+}
+@enduml

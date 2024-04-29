@@ -1,0 +1,61 @@
+@startuml
+class LoadTexture {
+}
+class MPDisplay {
+    + Draw() : void
+}
+class BlueBG {
+    + Draw() : void
+}
+class NTITexture {
+    + Draw() : void
+}
+class Matkort {
+    + Draw() : void
+}
+class Teacher {
+    + Draw() : void
+}
+class Matsal {
+    + Draw() : void
+}
+class Pendeltag {
+    + Draw() : void
+}
+class Laptop {
+    + Draw() : void
+}
+class Rektor {
+    + Draw() : void
+}
+class MPSText {
+    + Draw() : void
+}
+LoadTexture o-> "Background" Texture2D
+LoadTexture o-> "NTILogoImage" Image
+LoadTexture o-> "EvilNTILogoImage" Image
+LoadTexture o-> "NTILogo" Texture2D
+LoadTexture o-> "NTIrect" Rectangle
+LoadTexture o-> "MatkortBuilding" Texture2D
+LoadTexture o-> "MatkortRect" Rectangle
+LoadTexture o-> "TeacherBuilding" Texture2D
+LoadTexture o-> "TeacherRect" Rectangle
+LoadTexture o-> "MatsalBuilding" Texture2D
+LoadTexture o-> "MatsalRect" Rectangle
+LoadTexture o-> "PendeltagBuilding" Texture2D
+LoadTexture o-> "PendeltagRect" Rectangle
+LoadTexture o-> "LaptopBuilding" Texture2D
+LoadTexture o-> "LaptopRect" Rectangle
+LoadTexture o-> "RektorBuilding" Texture2D
+LoadTexture o-> "RektorRect" Rectangle
+IDrawable <|-- MPDisplay
+IDrawable <|-- BlueBG
+IDrawable <|-- NTITexture
+IDrawable <|-- Matkort
+IDrawable <|-- Teacher
+IDrawable <|-- Matsal
+IDrawable <|-- Pendeltag
+IDrawable <|-- Laptop
+IDrawable <|-- Rektor
+IDrawable <|-- MPSText
+@enduml

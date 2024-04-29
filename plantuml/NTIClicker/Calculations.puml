@@ -1,0 +1,16 @@
+@startuml
+class BuildingCalculators {
+    + {static} ComputeCost(building:Building) : ulong
+    + {static} BuyBuilding(building:Building) : void
+}
+class GameTimer {
+    + {static} Timer(duration:float) : void
+}
+class MPSCalculator {
+    + {static} TotalMPS : ulong
+    + {static} UpdateMPS() : void
+}
+class NumberFormatter {
+    + {static} ShortenNumber(number:ulong) : string
+}
+@enduml

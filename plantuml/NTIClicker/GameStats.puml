@@ -1,0 +1,22 @@
+@startuml
+class Building {
+    + Amount : uint <<get>> <<set>>
+    + MPS : uint <<get>> <<set>>
+    + BaseMPS : uint <<get>> <<set>>
+    + Price : ulong <<get>> <<set>>
+    + BasePrice : uint <<get>> <<set>>
+    + Building(amount:uint, mps:uint, baseMps:uint, price:ulong, basePrice:uint)
+}
+class GameConstants {
+    + {static} MP : ulong = 0
+}
+class "List`1"<T> {
+}
+GameConstants o-> "Matkort" Building
+GameConstants o-> "Teacher" Building
+GameConstants o-> "Matsal" Building
+GameConstants o-> "Pendeltag" Building
+GameConstants o-> "Laptop" Building
+GameConstants o-> "Rektor" Building
+GameConstants o-> "buildings<Building>" "List`1"
+@enduml

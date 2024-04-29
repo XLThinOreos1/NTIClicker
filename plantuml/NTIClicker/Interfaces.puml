@@ -1,0 +1,8 @@
+@startuml
+interface IClickable {
+    + Click() : void
+}
+interface IDrawable {
+    + Draw() : void
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class ClickAction {
+    + Click() : void
+}
+IClickable <|-- ClickAction
+@enduml

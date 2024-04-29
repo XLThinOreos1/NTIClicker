@@ -1,0 +1,14 @@
+@startuml
+!include .\\NTIClicker\Calculations.puml
+!include .\\NTIClicker\CheckClicks.puml
+!include .\\NTIClicker\GameAudio.puml
+!include .\\NTIClicker\GameLoop.puml
+!include .\\NTIClicker\GameStats.puml
+!include .\\NTIClicker\Interfaces.puml
+!include .\\NTIClicker\Program.puml
+!include .\\NTIClicker\Secrets.puml
+!include .\\NTIClicker\Textures.puml
+!include .\\NTIClicker\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+!include .\\NTIClicker\obj\Debug\net8.0\NTIClicker.AssemblyInfo.puml
+!include .\\NTIClicker\obj\Debug\net8.0\NTIClicker.GlobalUsings.g.puml
+@enduml

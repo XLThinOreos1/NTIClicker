@@ -1,0 +1,7 @@
+@startuml
+class GameAudio {
+}
+GameAudio o-> "bgm" Music
+GameAudio o-> "clickNTI" Sound
+GameAudio o-> "buyBuilding" Sound
+@enduml
